@@ -1,0 +1,55 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+master
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_MASTER > TPH_MASTER-1/$i.txt" ;done > 2.sh
+sh 2.sh
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_MASTERBUFF  > TPH_MASTERBUFF-1/$i.txt" ;done > 2.sh
+sh 2.sh
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_RTGSBUFF  > TPH_RTGSBUFF-1/$i.txt" ;done > 2.sh
+sh 2.sh
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_NEFTBUFF  > TPH_NEFTBUFF-1/$i.txt" ;done > 2.sh
+sh 2.sh
+
+
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_MASTER < $i ; done
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_MASTERBUFF < $i ; done
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_NEFTBUFF < $i ; done
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_RTGSBUFF < $i ; done
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+neft
+
+
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_NEFT > TPH_NEFT-1/$i.txt" ;done > 2.sh
+sh 2.sh
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_NEFTBUFF  > TPH_NEFTBUFF-1/$i.txt" ;done > 2.sh
+sh 2.sh
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_RTGSBUFF  > TPH_RTGSBUFF-1/$i.txt" ;done > 2.sh
+sh 2.sh
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_MASTERBUFF  > TPH_MASTERBUFF-1/$i.txt" ;done > 2.sh
+sh 2.sh
+
+
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_NEFT < $i ; done
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_NEFTBUFF < $i ; done
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_MASTERBUFF < $i ; done
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_RTGSBUFF < $i ; done
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+RTGS
+
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_RTGS > TPH_RTGS-1/$i.txt" ;done > 2.sh
+sh 2.sh
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_RTGSBUFF  > TPH_RTGSBUFF-1/$i.txt" ;done > 2.sh
+sh 2.sh
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_MASTERBUFF  > TPH_MASTERBUFF-1/$i.txt" ;done > 2.sh
+sh 2.sh
+for i in $(cat listqueue);do  echo "sed 's/ACK.INCOMING/"$i"/g' TPH_NEFTRBUFF  > TPH_NEFTBUFF-1/$i.txt" ;done > 2.sh
+sh 2.sh
+
+
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_RTGS < $i ; done
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_RTGSBUFF < $i ; done
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_MASTERBUFF < $i ; done
+for i in $(ls -rlht |awk -F" "  '{print $9}');do echo $i ; runmqsc TPH_NEFTBUFF < $i ; done
