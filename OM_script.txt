@@ -1,0 +1,34 @@
+runmqsc  TPH_MASTER
+5724-H72 (C) Copyright IBM Corp. 1994, 2022.
+Starting MQSC for queue manager TPH_MASTER.
+
+
+DEFINE CHANNEL(MBUFFREP.SVRCONN) CHLTYPE(SVRCONN)
+     1 : DEFINE CHANNEL(MBUFFREP.SVRCONN) CHLTYPE(SVRCONN)
+AMQ8014I: IBM MQ channel created.
+ALTER QMGR CHLAUTH (DISABLED)
+     2 : ALTER QMGR CHLAUTH (DISABLED)
+AMQ8005I: IBM MQ queue manager changed.
+SET CHLAUTH (MBUFFREP.SVRCONN) TYPE (ADDRESSMAP) ADDRESS(10.250.146.48) MCAUSER(mqm)
+     3 : SET CHLAUTH (MBUFFREP.SVRCONN) TYPE (ADDRESSMAP) ADDRESS(10.250.146.48) MCAUSER(mqm)
+AMQ8877I: IBM MQ channel authentication record set.
+REFRESH QMGR
+     4 : REFRESH QMGR
+AMQ8405I: Syntax error detected at or near end of command segment below:-
+REFRESH QMGR
+
+AMQ8427I: Valid syntax for the MQSC command:
+
+  REFRESH QMGR TYPE ( CONFIGEV )
+     [ INCLINT( integer ) ]
+     [ NAME( string ) ]
+     [ OBJECT( ALL      | AUTHINFO | AUTHREC  | CHANNEL  | CHLAUTH  |
+               COMMINFO | LISTENER | NAMELIST | POLICY   | PROCESS  |
+               QALIAS   | QLOCAL   | QMGR     | QMODEL   | QREMOTE  |
+               QUEUE    | SERVICE  | TOPIC ) ]
+
+  REFRESH QMGR TYPE ( PROXYSUB )
+REFRESH SECURITY TYPE(CONNAUTH)
+     5 : REFRESH SECURITY TYPE(CONNAUTH)
+AMQ8560I: IBM MQ security cache refreshed.
+
