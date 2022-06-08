@@ -1,3 +1,8 @@
+https://www.ibm.com/docs/en/ibm-mq/9.2?topic=configuring-defining-aspera-gateway-connection-linux-windows
+
+
+
+
 DEFINE CHANNEL(SVRCON) CHLTYPE(SVRCONN)
 ALTER QMGR CHLAUTH (DISABLED)
 SET CHLAUTH (SVRCON) TYPE (ADDRESSMAP) ADDRESS(10.250.146.51) MCAUSER(mqm)
